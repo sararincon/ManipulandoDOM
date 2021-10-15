@@ -48,9 +48,9 @@
 
         if (resultado < 0) {
           document.querySelector(".resultado").innerHTML = 0;
-        } else {
-          document.querySelector(".resultado").innerHTML = resultado;
+          return;
         }
+        document.querySelector(".resultado").innerHTML = resultado;
       });
     </script>
   </body>
