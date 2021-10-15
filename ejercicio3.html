@@ -46,10 +46,10 @@
 
         let resultado = valor_1 - valor_2;
 
-        document.querySelector(".resultado").innerHTML = resultado;
-
         if (resultado < 0) {
           document.querySelector(".resultado").innerHTML = 0;
+        } else {
+          document.querySelector(".resultado").innerHTML = resultado;
         }
       });
     </script>
