@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 1</title>
+  </head>
+
+  <body>
+    <div>
+      <div style="width: 40%; margin: 0 auto">
+        <h2>Escríbenos !!!</h2>
+        <div class="resultado" style="color: green; font-style: italic"></div>
+        <form id="formulario">
+          <div>
+            <div style="display: flex; flex-direction: column">
+              <label> Nombre completo </label>
+              <input id="nombre" type="text" />
+              <p class="errorNombre" style="color: red; font-style: italic"></p>
+            </div>
+            <div style="display: flex; flex-direction: column">
+              <label> Asunto </label>
+              <input id="asunto" type="text" />
+              <p class="errorAsunto" style="color: red; font-style: italic"></p>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column">
+            <label> Mensaje </label>
+            <textarea id="mensaje"></textarea>
+            <p class="errorMensaje" style="color: red; font-style: italic"></p>
+          </div>
+          <div>
+            <button id="botton" type="submit">Envíar mensaje</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("formulario");
+      const errorNombre = document.querySelector(".errorNombre");
+      const errorAsunto = document.querySelector(".errorAsunto");
+      const errorMensaje = document.querySelector(".errorMensaje");
+
+      const resultado = document.querySelector(".resultado");
+
+      const nombre = document.getElementById("nombre");
+      const asunto = document.getElementById("asunto");
+      const mensaje = document.getElementById("mensaje");
+
+      const regExp = /[a-zA-Z]/;
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        clean();
+        validacion();
+      });
+
+      const validacion = () => {
+        let validate = true;
+        if (nombre.value == "" || regExp.test(nombre.value)) {
+          errorNombre.innerHTML = "El nombre es requerido.";
+          validate = false;
+        }
+        if (asunto.value == "" || regExp.test(asunto.value)) {
+          errorAsunto.innerHTML = "El asunto esrequerido.";
+          validate = false;
+        }
+        if (mensaje.value == "" || regExp.test(mensaje.value)) {
+          errorMensaje.innerHTML = "El mensaje es requerido.";
+          validate = false;
+        }
+        if (validate == false) {
+          return false;
+        }
+
+        resultado.innerHTML = " Mensaje enviado con Exito";
+      };
+
+      const clean = () => {
+        errorNombre.innerHTML = "";
+        errorAsunto.innerHTML = "";
+        errorMensaje.innerHTML = "";
+        resultado.innerHTML = "";
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 3</title>
+  </head>
+
+  <body>
+    <div>
+      <div>
+        <h2>Resultado: <span class="resultado"></span></h2>
+        <div>
+          <div>
+            <div>
+              <label for="">Valor 1</label>
+              <input id="valor1" type="text" />
+            </div>
+            <div>
+              <label for="">Valor 2</label>
+              <input id="valor2" type="text" />
+            </div>
+            <div style="display: flex">
+              <button id="btn-sumar" type="button">Sumar</button>
+              <button id="btn-restar" type="button">Restar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let sumarBtn = document.getElementById("btn-sumar");
+      let restarBtn = document.getElementById("btn-restar");
+
+      sumarBtn.addEventListener("click", function () {
+        let valor_1 = parseInt(document.getElementById("valor1").value);
+        let valor_2 = parseInt(document.getElementById("valor2").value);
+
+        let resultado = valor_1 + valor_2;
+
+        document.querySelector(".resultado").innerHTML = resultado;
+      });
+
+      restarBtn.addEventListener("click", function () {
+        let valor_1 = parseInt(document.getElementById("valor1").value);
+        let valor_2 = parseInt(document.getElementById("valor2").value);
+
+        let resultado = valor_1 - valor_2;
+
+        document.querySelector(".resultado").innerHTML = resultado;
+
+        if (resultado < 0) {
+          document.querySelector(".resultado").innerHTML = 0;
+        }
+      });
+    </script>
+  </body>
+</html>
